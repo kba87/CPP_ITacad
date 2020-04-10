@@ -22,13 +22,13 @@ int main() {
     cout<<" 2 Decryption "<<endl;
 
    cin>>choice;
-   if (choice==1) //for encryption{
+   if (choice==1)
 
     {
       char ch;
       for(int i = 0; msg[i] != '\0'; ++i) {
         char ch = msg[i];
-         //encrypt for lowercase letter
+         
          if (ch >= 'a' && ch <= 'z'){
            char ch = ch + key;
             if (ch > 'z') {
@@ -36,7 +36,7 @@ int main() {
             }
             msg[i] = ch;
          }
-         //encrypt for uppercase letter
+         
          else if (ch >= 'A' && ch <= 'Z'){
             ch = ch + key;
             if (ch > 'Z'){
@@ -47,11 +47,11 @@ int main() {
       }
       cout<<("Encrypted message: %s", msg);
 
-}   else if (choice == 2) { //for decryption
+}   else if (choice == 2) { 
       char ch;
       for(int i = 0; msg[i] != '\0'; ++i) {
          ch = msg[i];
-         //decrypt for lowercase letter
+         
          if(ch >= 'a' && ch <= 'z') {
             ch = ch - key;
             if(ch < 'a'){
@@ -59,7 +59,7 @@ int main() {
             }
             msg[i] = ch;
          }
-         //decrypt for uppercase letter
+         
          else if(ch >= 'A' && ch <= 'Z') {
             ch = ch - key;
             if(ch < 'A') {
