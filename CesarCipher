@@ -1,4 +1,5 @@
 #include <iostream>
+#include <string>
 
 using namespace std;
 
@@ -7,7 +8,8 @@ int main()
     int choice;
     cout << "Encryption press: 1" << endl;
     cout << "Decryption press: 2" << endl;
-
+    cout<<endl;
+    cout << "Your choice: " ;
     cin >> choice;
     cin.ignore();
     switch(choice)
@@ -20,10 +22,11 @@ int main()
         cout<< "You have choosen decryption "<<endl;
         break;
     }
+    cout<<endl;
     if (choice == 1){
         // encryption
         string msg;
-        cout << "Enter message: ";
+        cout << "Enter message for encryption: ";
         getline(cin, msg);
 
         int key;
@@ -40,24 +43,21 @@ int main()
             } else {
 
                 if((msg[i]+key) > 122) {
-                    int temp = (msg[i] + key) - 122;
-                    encryptedText[i] = 96 + temp;
+                    encryptedText[i] = 96 + (msg[i] + key) - 122;
                 } else if (msg[i] + key > 90 && msg[i] <= 96){
-                    int temp = (msg[i] + key) - 90;
-                    encryptedText[i] = 64 + temp;
+                    encryptedText[i] = 64 + (msg[i] + key) - 90;
                 } else {
                     encryptedText[i] += key;
                 }
             }
         }
-
+        cout<<endl;
         cout << "Encrypted Message: " << encryptedText;
 
     } else if (choice == 2){
 
         string encpMsg;
-        cout << "Enter message" << endl;
-        cout << "Enter text: ";
+        cout << "Enter text for decrption: ";
         getline(cin, encpMsg);
 
         int dcyptKey;
@@ -69,25 +69,25 @@ int main()
 
         for (int i = 0; i < encpMsg.size(); i++){
             if(encpMsg[i]==32){
-                continue; //ignoring space
+                continue; //ignoring space second way
             } else {
                 if((encpMsg[i] - dcyptKey) < 97 && (encpMsg[i] - dcyptKey) > 90){
-                    int temp = (encpMsg[i] - dcyptKey) + 26;
-                    decryptedText[i] = temp;
+                    decryptedText[i] = (encpMsg[i] - dcyptKey) + 26;
                 } else if((encpMsg[i] - dcyptKey) < 65){
-                    int temp = (encpMsg[i] - dcyptKey) + 26;
-                    decryptedText[i] = temp;
+                    decryptedText[i] = (encpMsg[i] - dcyptKey) + 26;
                 } else {
                     decryptedText[i] = encpMsg[i] - dcyptKey;
                 }
             }
         }
-
+        cout<<endl;
         cout << "Decrypted Message: " << decryptedText << endl;
 
     } else {
         cout << "Invalid choice";
     }
+
+
     cout<<endl;
 
     return 0;
