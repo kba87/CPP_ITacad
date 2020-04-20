@@ -13,11 +13,11 @@ int main()
     switch(choice)
     {
     case(1):
-        cout<< "You choosen encryption "<<endl;
+        cout<< "You have choosen encryption "<<endl;
         break;
     case(2):
 
-        cout<< "You choosen decryption "<<endl;
+        cout<< "You have choosen decryption "<<endl;
         break;
     }
     if (choice == 1){
